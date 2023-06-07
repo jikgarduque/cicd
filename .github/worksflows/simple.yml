@@ -1,6 +1,6 @@
 name: simple
 on:
-  workflow_dispatch
+  master
 jobs:
   build:
     runs-on:
