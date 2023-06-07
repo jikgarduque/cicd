@@ -1,19 +1,23 @@
 name: simple
+
 on:
-  master
+  push:
+    branches:
+      - master
+
 jobs:
   build:
-    runs-on:
-      - self-hosted
-      - label-1
+    runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Run a one-line script
         run: |
-          Echo Hello, World!
-          Sleep 15
-          Echo Goodbye!
-        
+          echo Hello, World!
+          sleep 15
+          echo Goodbye!
+
       - name: Run a multi-line script
         run: |
-          echo "${{github.workspace}}"
+          echo ${{ github.workspace }}
